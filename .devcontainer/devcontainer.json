@@ -5,6 +5,15 @@
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
   "forwardPorts": [7474, 7687, 17474, 17687, 27474, 27687, 37474, 37687, 47474, 47687],
-  "onCreateCommand": "until docker info >/dev/null 2>&1; do sleep 1; done && docker compose -f cluster/docker-compose.yml pull",
-  "postAttachCommand": "docker --version"
+  "portsAttributes": {
+    "7474": { "label": "Neo4j Browser (core-1)", "onAutoForward": "notify" },
+    "7687": { "label": "Neo4j Bolt (core-1)", "onAutoForward": "silent" }
+  },
+  "otherPortsAttributes": { "onAutoForward": "silent" },
+  "onCreateCommand": "until docker info >/dev/null 2>&1; do sleep 1; done && docker compose -f single-instance/docker-compose.yml pull && docker compose -f cluster/docker-compose.yml pull",
+  "postAttachCommand": "docker --version",
+  "customizations": {
+    "vscode": { "extensions": ["neo4j-extensions.neo4j-for-vscode"] },
+    "codespaces": { "openFiles": ["README.md"] }
+  }
 }
