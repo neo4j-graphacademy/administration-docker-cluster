@@ -26,6 +26,7 @@ services:
             NEO4J_initial_server_mode__constraint: "PRIMARY"
             NEO4J_initial_dbms_default__primaries__count: "3"
             NEO4J_initial_dbms_default__secondaries__count: "2"
+            NEO4J_initial_dbms_automatically__enable__free__servers: "true"
         volumes:
             - "core-1-data:/data"
         networks:
@@ -51,6 +52,7 @@ services:
             NEO4J_initial_server_mode__constraint: "PRIMARY"
             NEO4J_initial_dbms_default__primaries__count: "3"
             NEO4J_initial_dbms_default__secondaries__count: "2"
+            NEO4J_initial_dbms_automatically__enable__free__servers: "true"
         volumes:
             - "core-2-data:/data"
         networks:
@@ -76,6 +78,7 @@ services:
             NEO4J_initial_server_mode__constraint: "PRIMARY"
             NEO4J_initial_dbms_default__primaries__count: "3"
             NEO4J_initial_dbms_default__secondaries__count: "2"
+            NEO4J_initial_dbms_automatically__enable__free__servers: "true"
         volumes:
             - "core-3-data:/data"
         networks:
